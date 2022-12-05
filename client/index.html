@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content=
+        "width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible"
+            content="ie=edge">
+    <title>PUT Request</title>
+</head>
+ 
+<body>
+    <h1>
+        Simple PUT request using fetch API
+        by making custom HTTP library
+    </h1>
+ 
+    
+    <script src="library.js"></script>
+    <script src="app.js"></script>
+</body>
+    <title>Back End Assessment</title>
+  </head>
+  <body class="container">
+    <button id="complimentButton">Get a compliment</button>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="main.js"></script>
+
+    <button id="fortunesButton">Get a fortune</button>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="main.js"></script>
+
+    
+    
+  </body>
+  <body class="container">
+    <h1>Friends</h1>
+    <ul id="people" class=""></ul>
+
+    <button id="button">GET Friends List</button>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+      document.getElementById("button").onclick = function () {
+        axios
+          .get("http://localhost:4000/api/users")
+          .then(function (response) {
+            const data = response.data;
+            document.getElementById("people").innerHTML = data
+              .map(function (person) {
+                return '<li class="row">' + person;
+              })
+              .join("");
+          })
+          .catch(function (err) {
+            document.getElementById("people").innerHTML =
+              '<li class="text-danger">' + err.message + "</li>";
+          });
+      };
+      
+    </script>
+    <script src="index.js"></script>
+    <script>
+      async function doRequest() {
+  
+          let url = 'http://httpbin.org/post';
+          let data = {'name': 'Ammarah Zaveri', 'occupation': 'Student'};
+  
+          let res = await fetch(url, {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(data),
+          });
+  
+          if (res.ok) {
+  
+  
+              let ret = await res.json();
+              return JSON.parse(ret.data);
+  
+          } else {
+              return `HTTP error: ${res.status}`;
+          }
+      }
+  
+      doRequest().then(data => {
+          console.log(data);
+      });
+      
+    let person = {
+        firstName: "Ammarah",
+        lastName: "Zaveri",
+        phone: 45678910
+    }
+  
+    console.log(delete person.phone);
+    console.log(person);
+</script>
+      
+  
+  </script>
+</html>
