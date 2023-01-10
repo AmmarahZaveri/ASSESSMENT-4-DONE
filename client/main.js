@@ -46,3 +46,21 @@ const getEmotions = () => {
 };
 
 emotionsBtn.addEventListener('click', getEmotions)
+
+//////////////////////////////////////////////////////////
+document.querySelector("form").addEventListener("submit", addMovie);
+const message = document.querySelector('#message')
+
+function addMovie(event) {
+  event.preventDefault();
+  let inputField = document.querySelector('input')
+
+  const movie = document.createElement('li')
+
+  const list = document.querySelector("ul");
+  list.appendChild(movie);
+
+
+
+  inputField.value = ''
+}
