@@ -1,6 +1,4 @@
 const complimentBtn = document.getElementById("complimentButton")
-const fortunesBtn = document.getElementById("fortunesButton")
-
 
 const getCompliment = () => {
     axios.get("http://localhost:4000/api/compliment/")
@@ -10,35 +8,41 @@ const getCompliment = () => {
     });
 };
 
+complimentBtn.addEventListener('click', getCompliment)
+//////////////////////////////////////////////////////////
+
+const fortunesBtn = document.getElementById("fortunesButton")
+
 const getFortunes = () => {
-    axios.get("http://localhost:4000/api/fortunes/")
+    axios.get("http://localhost:4000/api/fortune/")
         .then(res => {
             const data = res.data;
             alert(data);
     });
 };
-complimentBtn.addEventListener('click', getCompliment)
+
 fortunesBtn.addEventListener('click', getFortunes)
+/////////////////////////////////////////////////////////////
+const quotesBtn = document.getElementById("quotesButton")
 
-class EasyHTTP {
- 
-  
-    async put(url, data) {
-  
-   
-     const response = await fetch(url, {
-       method: 'PUT',
-       headers: {
-         'Content-type': 'application/json'
-       },
-       body: JSON.stringify(data)
-     });
-      
+const getQuotes = () => {
+    axios.get("http://localhost:4000/api/quote/")
+        .then(res => {
+            const data = res.data;
+            alert(data);
+    });
+};
 
-     const resData = await response.json();
-  
-  
-     return resData;
-   }
- }
+quotesBtn.addEventListener('click', getQuotes)
+///////////////////////////////////////////////////////////////
+const emotionsBtn = document.getElementById("emotionsButton")
 
+const getEmotions = () => {
+    axios.get("http://localhost:4000/api/emotion/")
+        .then(res => {
+            const data = res.data;
+            alert(data);
+    });
+};
+
+emotionsBtn.addEventListener('click', getEmotions)
